@@ -35,7 +35,9 @@
 		<Unit filename="Buttons.h" />
 		<Unit filename="Texture.h" />
 		<Unit filename="Timer.h" />
+		<Unit filename="Variables.h" />
 		<Unit filename="constant.h" />
+		<Unit filename="function.h" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<lib_finder disable_auto="1" />

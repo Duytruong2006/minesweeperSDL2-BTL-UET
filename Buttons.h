@@ -1,10 +1,6 @@
 #pragma once
 
-#ifndef BUTTONS_H
-#define BUTTONS_H
-
 #include <SDL.h>
-
 
 class LButton
 {
@@ -33,4 +29,3 @@ private:
 	//Top left position
 	SDL_Point mPosition;
 };
-#endif

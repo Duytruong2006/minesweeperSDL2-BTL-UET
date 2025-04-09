@@ -11,7 +11,7 @@ int WinMain(int argc, char* argv[])
 	//Start up SDL and create window
 	if (!init())
 	{
-		printf("Failed to initialize!\n");
+		cout << "fail to initialize.\n";
 	}
 	else
 	{

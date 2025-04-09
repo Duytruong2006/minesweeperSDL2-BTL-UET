@@ -1,10 +1,4 @@
-
-
 #pragma once
-#pragma once
-#ifndef TEXTURE_H
-#define TEXTURE_H
-
 #include<iostream>
 #include<time.h>
 #include<SDL.h>
@@ -49,4 +43,3 @@ private:
 	int mWidth;
 	int mHeight;
 };
-#endif
