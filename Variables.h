@@ -1,47 +1,47 @@
 #pragma once
-#include "Buttons.h"
-#include "constant.h"
+
 #include "Texture.h"
-
+#include "constant.h"
+#include "Buttons.h"
 using namespace std;
-
 // initialization
 extern SDL_Window* window;
 extern SDL_Renderer* renderer;
 
 // loop variable
 extern bool isRunning;
+extern bool showmenu;
 extern bool isChoosing;
-extern bool showMenu;
-extern bool gameLoop;
+extern bool mainLoop;
 extern bool customMode;
 
-// win or lose variables
+//win or lose
 extern bool isWinning;
 extern bool lose;
 
-//image use in game
+
+
+// image use in game
 extern LTexture menuTheme;
-extern LTexture leveltheme;
+extern LTexture levelTheme;
 extern LTexture easyTable;
 extern LTexture mediumTable;
 extern LTexture hardTable;
 extern LTexture customStart;
+extern LTexture back;
 extern LTexture sound_on;
 extern LTexture sound_off;
-extern LTexture back;
 
 // image face
 extern LTexture winFace;
 extern LTexture playingFace;
 extern LTexture loseFace;
 
-//tiles on board
+// Tiles in board
 extern LTexture Tiles_image;
 extern SDL_Rect Tilesprites[12];
 
 // text
-
 extern LTexture menu;
 extern LTexture menu1;
 extern LTexture menuColor;
@@ -57,7 +57,7 @@ extern LTexture customChoiceColor;
 extern LTexture wInput;
 extern LTexture hInput;
 extern LTexture mInput;
-extern TTF_Font* gfont;
+extern TTF_Font* gFont;
 
 // Create board data
 extern vector <vector<int> > sBoard;
@@ -68,11 +68,12 @@ extern int mineCountLeft;
 extern int CountTileLeft;
 
 // audio
+extern bool mute;
 extern Mix_Chunk* click;
 extern Mix_Music* loseMusic;
 extern Mix_Music* winMusic;
 
-//distance
+// distance
 extern int distance_x;
 extern int distance_y;
 extern int digit_x;
@@ -88,12 +89,11 @@ extern int BOARD_SIZE_X;
 extern int BOARD_SIZE_Y;
 extern int NumberOfMines;
 
-//boolean
+// boolean
 extern bool playAgain;
 extern bool saveScore;
+extern bool start;
 extern bool easy;
 extern bool medium;
 extern bool hard;
 extern bool cus;
-extern bool start;
-

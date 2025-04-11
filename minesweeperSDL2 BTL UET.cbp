@@ -34,7 +34,9 @@
 		</Compiler>
 		<Unit filename="Buttons.h" />
 		<Unit filename="Texture.h" />
+		<Unit filename="Timer.cpp" />
 		<Unit filename="Timer.h" />
+		<Unit filename="Variables.cpp" />
 		<Unit filename="Variables.h" />
 		<Unit filename="constant.h" />
 		<Unit filename="function.h" />
