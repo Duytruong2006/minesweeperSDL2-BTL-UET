@@ -32,13 +32,16 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="Buttons.cpp" />
 		<Unit filename="Buttons.h" />
+		<Unit filename="Texture.cpp" />
 		<Unit filename="Texture.h" />
 		<Unit filename="Timer.cpp" />
 		<Unit filename="Timer.h" />
 		<Unit filename="Variables.cpp" />
 		<Unit filename="Variables.h" />
 		<Unit filename="constant.h" />
+		<Unit filename="function.cpp" />
 		<Unit filename="function.h" />
 		<Unit filename="main.cpp" />
 		<Extensions>

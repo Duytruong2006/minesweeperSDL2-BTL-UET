@@ -12,7 +12,7 @@ public :
     // pause the timer
     void pause();
     // gets the timer's time
-    Uint32 getsTick();
+    Uint32 getTicks();
     // check the timer status
     bool isStarted();
     bool isPaused();

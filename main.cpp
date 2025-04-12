@@ -8,7 +8,6 @@ using namespace std;
 
 int WinMain(int argc, char* argv[])
 {
-	//Start up SDL and create window
 	if (!init())
 	{
 		cout << "fail to initialize.\n";
