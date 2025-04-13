@@ -54,7 +54,7 @@ bool LTexture::loadFromFile(string path)
     SDL_Surface* loadedSurface = IMG_Load(path.c_str())
                                  if(loadedSurface == NULL)
     {
-        cout << "fail to load the image" << path.c_str << IMG_GetError();
+        cout << "fail to load the image" << path.c_str << IMG_GetError() << endl;
     }
     else
     {
@@ -63,7 +63,7 @@ bool LTexture::loadFromFile(string path)
         newTexture = SDL_CreateTextureFromSurface(renderer, loadedSurface);
         if(newTexture == NULL)
         {
-            cout << "fail to create a newTexture" << path.c_str() << SDL_GetError();
+            cout << "fail to create a newTexture" << path.c_str() << SDL_GetError() << endl;
         }
         else
         {
@@ -82,14 +82,14 @@ bool LTexture::loadFromRenderedText(string textureText, SDL_Color textColor)
     SDL_Surface* textSurface = TTF_RenderText_Solid(gFont, textureText.c_str(), textColor);
     if(textSurface == NULL)
     {
-        cout << "fail to render text surface" << TTF_GetError();
+        cout << "fail to render text surface" << TTF_GetError() << endl;
     }
     else
     {
         mTexture = SDL_CreateTextureFromSurface(renderer, textSurface);
         if(mTexture == NULL)
         {
-            cout << "fail to create texture form rendered text" << SDL_GetError();
+            cout << "fail to create texture form rendered text" << SDL_GetError() << endl;
         }
         else
         {

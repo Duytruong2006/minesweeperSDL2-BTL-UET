@@ -10,7 +10,7 @@ int WinMain(int argc, char* argv[])
 {
 	if (!init())
 	{
-		cout << "fail to initialize.\n";
+		cout << "fail to initialize.\n" << endl;
 	}
 	else
 	{

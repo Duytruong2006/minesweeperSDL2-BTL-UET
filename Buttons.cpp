@@ -93,6 +93,61 @@ void LButton::handleEventMute(SDL_Event* e)
         }
     }
 }
-void LButton::handleEvent(){
-
+void LButton::handleEvent(SDL_Event* e)
+{
+    if(e -> SDL_MOUSEMOTION || e -> SDL_MOUSEBUTTONUP || e -> SDL_MOUSEBUTTONDOWN)
+    {
+        int x,y;
+        SDL_GetModState(&x,&y);
+        int i = (x - distance_x) / TILE_SIZE;
+        int j = (y - distance_y) / TILE_SIZE;
+        bool inside = true;
+        if(x < mPosition.x || x > mPosition.x + TILE_SIZE || y < mPosition.y || y > mPosition.y + TILE_SIZE)
+        {
+            inside = false;
+        }
+        if(inside)
+        {
+            switch(e->button.button)
+            {
+            case SDL_BUTTON_LEFT:
+            {
+                reveal(i,j);
+                if(CountTileLeft == NumberOfMines)
+                {
+                    Mix_PlayMusic(winMusic, 1);
+                }
+                if(sBoard[i][j] == 9)
+                {
+                    lose = true;
+                    Mix_PlayMusic(loseMusic, 1);
+                }
+                else
+                {
+                    Mix_PlayChannel(-1, click, 0);
+                }
+                break;
+            }
+            case SDL_BUTTON_RIGHT:
+            {
+                Mix_PlayChannel(-1, click, 0);
+                if(sBoard[i][j] >= 10)
+                {
+                    if(sBoard[i][j] == 10)
+                    {
+                        sBoard[i][j] = 11;
+                        mineCountLeft--;
+                    }
+                    if(sBoard[i][j] == 11)
+                    {
+                        sBoard[i][j] = 10;
+                        mineCountLeft++;
+                    }
+                }
+                else break;
+            }
+            break;
+            }
+        }
+    }
 }
