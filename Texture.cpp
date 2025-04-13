@@ -52,7 +52,7 @@ bool LTexture::loadFromFile(string path)
     free();
     SDL_Texture* newTexture = NULL;
     SDL_Surface* loadedSurface = IMG_Load(path.c_str())
-                                 if(loadedSurface == NULL)
+    if(loadedSurface == NULL)
     {
         cout << "fail to load the image" << path.c_str << IMG_GetError() << endl;
     }
