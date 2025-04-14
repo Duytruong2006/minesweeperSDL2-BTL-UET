@@ -7,7 +7,7 @@
 #include "Timer.h"
 using namespace std;
 
-vector<vector<LButton>> LButton(3,vector<LButton>(2));
+vector<vector<LButton>> Buttons(3,vector<LButton>(2));
 LButton face;
 LButton goBack;
 LButton sound;
@@ -286,27 +286,99 @@ void createMenu()
 void createModeMenu()
 {
     levelTheme.render(0, 0);
-    easyChoice,render(300 , 150);
-    mediumChoice.render(300 , 200);
-    hardChoice.render(300 , 250);
-    customChoice.render(300 , 300);
+    easyChoice,render(300, 150);
+    mediumChoice.render(300, 200);
+    hardChoice.render(300, 250);
+    customChoice.render(300, 300);
 }
-void CustomMode(){
+void CustomMode()
+{
 
 }
 
 // ingame func
-void isPlayerWinning(){
-    if(CountTileLeft == NumberOfMines){
+void isPlayerWinning()
+{
+    if(CountTileLeft == NumberOfMines)
+    {
         isWinning = true;
     }
 }
-void MineManager(){
+void MineManager()
+{
 
 }
-void GameManager(){
+void GameManager()
+{
+    if(playAgain == true)
+    {
+        PlayAgain();
+    }
+    if(lose == true)
+    {
+        timer.pause();
+        loseFace.render(BOARD_SIZE_X * TILE_SIZE / 2, digit_y);
+        for(int i=0; i<BOARD_SIZE_X ; i++)
+        {
+            for(int j=0; j<BOARD_SIZE_Y ; j++)
+            {
+                Buttons[i][j].loseRender(i, j);
+            }
+        }
+    }
+    if(isWinning == true)
+    {
+        timer.pause();
+        winFace.render(BOARD_SIZE_X * TILE_SIZE / 2, digit_y);
+        if(isRunning == false)
+        {
+            getScore();
+        }
+    }
+}
+void playAgain()
+{
+    timer.stop();
+    if(isWinning)
+    {
+        getScore();
+    }
+    timer.start();
+    Createboard();
+    Mix_HaltMusic();
+    CountTileLeft = BOARD_SIZE_X * BOARD_SIZE_Y;
+    mineCountLeft = NumberOfMines;
+    isWinning = false;
+    lose = false;
+    playAgain = false;
+}
+string getTime()
+{
+    stringstream Time{};
+    if(isWinning)
+    {
+        int n = timer.getTicks() / 1000;
+        int h,m,s;
+        h = n / 3600;
+        m = (n - h*3600) / 60;
+        s = (n - h*3600 - m*60);
+        Time.str("");
+        Time << h << ":" << m << ":" << s;
+        return Time.str();
+    }
+}
+string getFileScoreName()
+{
+    stringstream os;
+    os.str( "" );
+    os << "score/" << BOARD_SIZE_X << "x" << BOARD_SIZE_Y << "x" << NumberOfMines<<".txt";
+    return os.str();
 
 }
-void playAgain(){
-
+void getScore()
+{
+    ofstream outFile;
+    outFile.open(getFileScoreName().c_str(),ios::app);
+    outFile << getTime() << endl;
+    outFile.close();
 }

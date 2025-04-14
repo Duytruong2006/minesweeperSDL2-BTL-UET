@@ -1,6 +1,10 @@
 # depslib dependency file v1.0
-1584205420 source:c:\users\admin\desktop\minesweepersdl2 btl uet\main.cpp
-	<iostream>
+1744512922 source:c:\users\admin\desktop\minesweepersdl2 btl uet\main.cpp
+	"Texture.h"
+	"Buttons.h"
+	"Variables.h"
+	"constant.h"
+	"function.h"
 
 1744427753 source:c:\users\admin\desktop\minesweepersdl2 btl uet\variables.cpp
 	"Variables.h"
@@ -27,9 +31,19 @@
 1744167830 c:\users\admin\desktop\minesweepersdl2 btl uet\buttons.h
 	<SDL.h>
 
-1744427030 source:c:\users\admin\desktop\minesweepersdl2 btl uet\timer.cpp
+1744469700 source:c:\users\admin\desktop\minesweepersdl2 btl uet\timer.cpp
 	"Timer.h"
 
 1744427930 c:\users\admin\desktop\minesweepersdl2 btl uet\timer.h
+	<SDL.h>
+
+1744622939 source:c:\users\admin\desktop\minesweepersdl2 btl uet\buttons.cpp
+	"Variables.h"
+	"Buttons.h"
+	"function.h"
+	"constant.h"
+
+1744623004 c:\users\admin\desktop\minesweepersdl2 btl uet\function.h
+	"Timer.h"
 	<SDL.h>
 

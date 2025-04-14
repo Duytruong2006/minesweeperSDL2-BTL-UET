@@ -37,7 +37,7 @@ void LButton::handleEventAgain(SDL_Event* e)
         }
         if(inside && e->button.button ==  SDL_BUTTON_LEFT)
         {
-            playAgain();
+            PlayAgain();
         }
     }
 
@@ -95,10 +95,10 @@ void LButton::handleEventMute(SDL_Event* e)
 }
 void LButton::handleEvent(SDL_Event* e)
 {
-    if(e -> SDL_MOUSEMOTION || e -> SDL_MOUSEBUTTONUP || e -> SDL_MOUSEBUTTONDOWN)
+    if(e -> type == SDL_MOUSEMOTION || e -> type == SDL_MOUSEBUTTONUP || e -> type == SDL_MOUSEBUTTONDOWN)
     {
         int x,y;
-        SDL_GetModState(&x,&y);
+        SDL_GetMouseState(&x,&y);
         int i = (x - distance_x) / TILE_SIZE;
         int j = (y - distance_y) / TILE_SIZE;
         bool inside = true;

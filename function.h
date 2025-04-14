@@ -4,9 +4,9 @@
 using namespace std;
 
 // initialization func
-void init();
-void loadmedia();
-void loadMenuMedia();
+bool init();
+bool loadmedia();
+bool loadMenuMedia();
 
 //initialization game
 void Createboard();
@@ -21,7 +21,7 @@ void setButtonPosition();
 void isPlayerWinning();
 void MineManager();
 void GameManager();
-void playAgain();
+void PlayAgain();
 string getTime();
 string getFileScoreName();
 void getScore();
