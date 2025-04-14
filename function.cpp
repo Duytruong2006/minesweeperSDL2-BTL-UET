@@ -12,7 +12,7 @@ LButton face;
 LButton goBack;
 LButton sound;
 LTimer timer;
-
+// initialization func
 bool init()
 {
     bool success = true;
@@ -165,63 +165,148 @@ void loadmedia()
 }
 void loadMenuMedia()
 {
-       bool success = true;
-	if (!menuTheme.loadFromFile("res/images/menu.jpg"))
-	{
-		cout << "fail" << endl;
-		success = false;
-	}
-	if (!levelTheme.loadFromFile("res/images/mode.jpg"))
-	{
-		cout << "fail" << endl;
-		success = false;
-	}
-	if (!customStart.loadFromFile("res/images/custom.png"))
-	{
-		cout << "fail" << endl;
-		success = true;
-	}
-	SDL_Color textColor = { 255,255,255 };
-	if (!easyChoice.loadFromRenderedText("EASY MODE", textColor))
-	{
-		cout << "fail" << endl;
-		success = false;
-	}
-	if (!mediumChoice.loadFromRenderedText("MEDIUM MODE", textColor))
-	{
-		cout << "fail" << endl;
-		success = false;
-	}
-	if (!hardChoice.loadFromRenderedText("HARD MODE", textColor))
-	{
-		cout << "fail" << endl;
-		success = false;
-	}
-	if (!customChoice.loadFromRenderedText("CUSTOM MODE", textColor))
-	{
-		cout << "fail" << endl;
-		success = false;
-	}
-	SDL_Color textcolor = { 255,0,0 };
-	if (!easyChoiceColor.loadFromRenderedText("EASY MODE", textcolor))
-	{
-		cout << "fail" << endl;
-		success = false;
-	}
-	if (!mediumChoiceColor.loadFromRenderedText("MEDIUM MODE", textcolor))
-	{
-		cout << "fail" << endl;
-		success = false;
-	}
-	if (!hardChoiceColor.loadFromRenderedText("HARD MODE", textcolor))
-	{
-		cout << "fail" << endl;
-		success = false;
-	}
-	if (!customChoiceColor.loadFromRenderedText("CUSTOM MODE", textcolor))
-	{
-		cout << "fail" << endl;
-		success = false;
-	}
-	return success;
+    bool success = true;
+    if (!menuTheme.loadFromFile("res/images/menu.jpg"))
+    {
+        cout << "fail" << endl;
+        success = false;
+    }
+    if (!levelTheme.loadFromFile("res/images/mode.jpg"))
+    {
+        cout << "fail" << endl;
+        success = false;
+    }
+    if (!customStart.loadFromFile("res/images/custom.png"))
+    {
+        cout << "fail" << endl;
+        success = true;
+    }
+    SDL_Color textColor = { 255,255,255 };
+    if (!easyChoice.loadFromRenderedText("EASY MODE", textColor))
+    {
+        cout << "fail" << endl;
+        success = false;
+    }
+    if (!mediumChoice.loadFromRenderedText("MEDIUM MODE", textColor))
+    {
+        cout << "fail" << endl;
+        success = false;
+    }
+    if (!hardChoice.loadFromRenderedText("HARD MODE", textColor))
+    {
+        cout << "fail" << endl;
+        success = false;
+    }
+    if (!customChoice.loadFromRenderedText("CUSTOM MODE", textColor))
+    {
+        cout << "fail" << endl;
+        success = false;
+    }
+    SDL_Color textcolor = { 255,0,0 };
+    if (!easyChoiceColor.loadFromRenderedText("EASY MODE", textcolor))
+    {
+        cout << "fail" << endl;
+        success = false;
+    }
+    if (!mediumChoiceColor.loadFromRenderedText("MEDIUM MODE", textcolor))
+    {
+        cout << "fail" << endl;
+        success = false;
+    }
+    if (!hardChoiceColor.loadFromRenderedText("HARD MODE", textcolor))
+    {
+        cout << "fail" << endl;
+        success = false;
+    }
+    if (!customChoiceColor.loadFromRenderedText("CUSTOM MODE", textcolor))
+    {
+        cout << "fail" << endl;
+        success = false;
+    }
+    return success;
+}
+
+// initialization game
+void Createboard()
+{
+    srand(time(0));
+    for(int i=0 ; i<BOARD_SIZE_X ; i++)
+    {
+        for(int j=0; j<BOARD_SIZE_Y ; j++)
+        {
+            sBoard[i][j] = 10;
+            board[i][j] = 0;
+        }
+    }
+    while(mine < NumberOfMines)
+    {
+        int i = rand() % BOARD_SIZE_X;
+        int j = rand() % BOARD_SIZE_Y;
+        if(board[i][j] == 9)
+        {
+            continue;
+        }
+        board[i][j] = 9;
+        mine++;
+    }
+    for(int i=0; i<BOARD_SIZE_X ; i++)
+    {
+        for(int j=0; j<=BOARD_SIZE_Y; j++)
+        {
+            if(board[i][j] == 9)
+            {
+                continue;
+            }
+            for(int x=-1 ; x<=1 ; x++)
+            {
+                for(int y=-1; y<=1 ; y++)
+                {
+                    int xpos = i + x;
+                    int ypos = j + y;
+                    if(xpos < 0 || xpos > BOARD_SIZE_X - 1 ||  ypos < 0 ||ypos > BOARD_SIZE_Y -1)
+                    {
+                        continue;
+                    }
+                    if(board[xpos][ypos] == 9)
+                    {
+                        board[i][j]++;
+                    }
+                }
+            }
+        }
+    }
+}
+void createMenu()
+{
+    menuTheme.render(0, 0);
+    menu.render(300, 400);
+    menu1.render(450, 400);
+    SDL_RenderPresent(renderer);
+}
+void createModeMenu()
+{
+    levelTheme.render(0, 0);
+    easyChoice,render(300 , 150);
+    mediumChoice.render(300 , 200);
+    hardChoice.render(300 , 250);
+    customChoice.render(300 , 300);
+}
+void CustomMode(){
+
+}
+
+// ingame func
+void isPlayerWinning(){
+    if(CountTileLeft == NumberOfMines){
+        isWinning = true;
+    }
+}
+void MineManager(){
+
+}
+void GameManager(){
+
+}
+void playAgain(){
+
 }

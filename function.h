@@ -8,9 +8,6 @@ void init();
 void loadmedia();
 void loadMenuMedia();
 
-// close SDL
-void close();
-
 //initialization game
 void Createboard();
 void createMenu();
@@ -34,3 +31,6 @@ void handleEvent();
 void reveal(int i, int j);
 void renderGame();
 void setGameMode(int x,int y, int n, int dx, int dy, int d1x, int d1y, int& BOARD_SIZE_X, int& BOARD_SIZE_, int& NumberOfMines, int& mineCountLeft, int& CountTileLeft, int& distance_x, int& distance_y, int& digit_x, int& digit_y, int& timeDigit_x);
+
+// close SDL
+void close();
