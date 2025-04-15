@@ -295,6 +295,18 @@ void CustomMode()
 {
 
 }
+void showMenu()
+{
+
+}
+void showModeChoice()
+{
+
+}
+void setButtonPosition()
+{
+
+}
 
 // ingame func
 void isPlayerWinning()
@@ -304,9 +316,88 @@ void isPlayerWinning()
         isWinning = true;
     }
 }
+string getTime()
+{
+    stringstream Time{};
+    if(isWinning)
+    {
+        int n = timer.getTicks() / 1000;
+        int h,m,s;
+        h = n / 3600;
+        m = (n - h*3600) / 60;
+        s = (n - h*3600 - m*60);
+        Time.str("");
+        Time << h << ":" << m << ":" << s;
+        return Time.str();
+    }
+}
+string getFileScoreName()
+{
+    stringstream os;
+    os.str( "" );
+    os << "score/" << BOARD_SIZE_X << "x" << BOARD_SIZE_Y << "x" << NumberOfMines<<".txt";
+    return os.str();
+
+}
+
+void getScore()
+{
+    ofstream outFile;
+    outFile.open(getFileScoreName().c_str(),ios::app);
+    outFile << getTime() << endl;
+    outFile.close();
+}
+
 void MineManager()
 {
-
+    int n = mineCountLeft;
+    if(mineCountLeft < 10)
+    {
+        Digits.render(digit_x, digit_y, &Digitsprites[0]);
+        for(int i=0 ; i<=9 ; i++)
+        {
+            if(i == mineCountLeft)
+            {
+                Digits.render(digit_x + 28, digit_y, &Digitsprites[i]);
+            }
+        }
+    }
+    else
+    {
+        int i=0;
+        while(n > 0)
+        {
+            int x = n % 10;
+            n /= 10;
+            Digits.render(digit_x + (1 - i) * 28, digit_y, &Digitsprites[x]);
+            i++;
+        }
+    }
+}
+void TimeManager()
+{
+    int n = timer.getTicks() / 1000;
+    if(n < 10)
+    {
+        for(int i=0 ; i<=9 ; i++)
+        {
+            if(i == n)
+            {
+                Digits.render(digit_x + 28, digit_y, &Digitsprites[n]);
+            }
+        }
+    }
+    else
+    {
+        int i=0;
+        while(n > 0)
+        {
+            int x = n % 10;
+            n /= 10;
+            Digits.render(digit_x + (1 - i) * 28, digit_y, &Digitsprites[x]);
+            i++;
+        }
+    }
 }
 void GameManager()
 {
@@ -352,33 +443,32 @@ void playAgain()
     lose = false;
     playAgain = false;
 }
-string getTime()
-{
-    stringstream Time{};
-    if(isWinning)
-    {
-        int n = timer.getTicks() / 1000;
-        int h,m,s;
-        h = n / 3600;
-        m = (n - h*3600) / 60;
-        s = (n - h*3600 - m*60);
-        Time.str("");
-        Time << h << ":" << m << ":" << s;
-        return Time.str();
-    }
-}
-string getFileScoreName()
-{
-    stringstream os;
-    os.str( "" );
-    os << "score/" << BOARD_SIZE_X << "x" << BOARD_SIZE_Y << "x" << NumberOfMines<<".txt";
-    return os.str();
+void renderButton(){
 
 }
-void getScore()
-{
-    ofstream outFile;
-    outFile.open(getFileScoreName().c_str(),ios::app);
-    outFile << getTime() << endl;
-    outFile.close();
+void handleEvent(){
+
+}
+void reveal(int i, int j){
+
+}
+void renderGame(){
+
+}
+void setGameMode(int x,int y, int n, int dx, int dy, int d1x, int d1y, int& BOARD_SIZE_X, int& BOARD_SIZE_, int& NumberOfMines, int& mineCountLeft, int& CountTileLeft, int& distance_x, int& distance_y, int& digit_x, int& digit_y, int& timeDigit_x){
+
+}
+// close SDL
+void close(){
+    Tiles_image.free();
+    TTF_CloseFont(gFont);
+    gFont = NULL;
+    SDL_DestroyRenderer(renderer);
+    SDL_DestroyWindow(window);
+    window = NULL;
+    renderer = NULL;
+
+    TTF_Quit();
+    IMG_Quit();
+    SDL_Quit();
 }

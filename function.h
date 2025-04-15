@@ -19,13 +19,13 @@ void setButtonPosition();
 
 //ingame func
 void isPlayerWinning();
-void MineManager();
-void GameManager();
-void PlayAgain();
 string getTime();
 string getFileScoreName();
 void getScore();
+void MineManager();
 void TimeManager();
+void GameManager();
+void PlayAgain();
 void renderButton();
 void handleEvent();
 void reveal(int i, int j);
