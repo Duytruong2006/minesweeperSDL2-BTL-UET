@@ -9,7 +9,7 @@ bool loadmedia();
 bool loadMenuMedia();
 
 //initialization game
-void Createboard();
+void CreateBoard();
 void createMenu();
 void createModeMenu();
 void CustomMode();

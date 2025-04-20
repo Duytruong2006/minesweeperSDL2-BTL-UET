@@ -44,17 +44,17 @@ void LTexture::render(int x,int y,SDL_Rect* clip)
         renderquad.w = clip->w;
         renderquad.h = clip->h;
     }
-    SDL_RenderCopy(renderer, mTexture, renderquad, &renderquad);
+    SDL_RenderCopy(renderer, mTexture, clip , &renderquad);
 }
 
 bool LTexture::loadFromFile(string path)
 {
     free();
     SDL_Texture* newTexture = NULL;
-    SDL_Surface* loadedSurface = IMG_Load(path.c_str())
+    SDL_Surface* loadedSurface = IMG_Load(path.c_str());
     if(loadedSurface == NULL)
     {
-        cout << "fail to load the image" << path.c_str << IMG_GetError() << endl;
+        cout << "fail to load the image" << path.c_str() << IMG_GetError() << endl;
     }
     else
     {
