@@ -19,8 +19,6 @@ extern bool customMode;
 extern bool isWinning;
 extern bool lose;
 
-
-
 // image use in game
 extern LTexture menuTheme;
 extern LTexture levelTheme;

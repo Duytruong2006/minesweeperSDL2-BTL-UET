@@ -26,8 +26,6 @@ public:
 	//Deallocates texture
 	void free();
 
-
-
 	//Renders texture at given point
 	void render(int x, int y, SDL_Rect* clip = NULL);
 

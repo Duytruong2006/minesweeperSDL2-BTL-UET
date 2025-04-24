@@ -6,16 +6,16 @@
 	"constant.h"
 	"function.h"
 
-1744427753 source:c:\users\admin\desktop\minesweepersdl2 btl uet\variables.cpp
+1745253717 source:c:\users\admin\desktop\minesweepersdl2 btl uet\variables.cpp
 	"Variables.h"
 	<iostream>
 
-1744362034 c:\users\admin\desktop\minesweepersdl2 btl uet\variables.h
+1745252998 c:\users\admin\desktop\minesweepersdl2 btl uet\variables.h
 	"Texture.h"
 	"constant.h"
 	"Buttons.h"
 
-1744167750 c:\users\admin\desktop\minesweepersdl2 btl uet\texture.h
+1745252998 c:\users\admin\desktop\minesweepersdl2 btl uet\texture.h
 	<iostream>
 	<time.h>
 	<SDL.h>
@@ -25,29 +25,39 @@
 	<string>
 	<vector>
 
-1744122044 c:\users\admin\desktop\minesweepersdl2 btl uet\constant.h
+1745255209 c:\users\admin\desktop\minesweepersdl2 btl uet\constant.h
 	<iostream>
 
 1744167830 c:\users\admin\desktop\minesweepersdl2 btl uet\buttons.h
 	<SDL.h>
 
-1744469700 source:c:\users\admin\desktop\minesweepersdl2 btl uet\timer.cpp
+1745286212 source:c:\users\admin\desktop\minesweepersdl2 btl uet\timer.cpp
 	"Timer.h"
 
 1744427930 c:\users\admin\desktop\minesweepersdl2 btl uet\timer.h
 	<SDL.h>
 
-1744622939 source:c:\users\admin\desktop\minesweepersdl2 btl uet\buttons.cpp
+1745473255 source:c:\users\admin\desktop\minesweepersdl2 btl uet\buttons.cpp
 	"Variables.h"
+	"constant.h"
 	"Buttons.h"
 	"function.h"
-	"constant.h"
 
-1745139170 c:\users\admin\desktop\minesweepersdl2 btl uet\function.h
+1745253111 c:\users\admin\desktop\minesweepersdl2 btl uet\function.h
 	"Timer.h"
 	<SDL.h>
 
 1745132312 source:c:\users\admin\desktop\minesweepersdl2 btl uet\texture.cpp
 	"Texture.h"
 	"Variables.h"
+
+1745473478 source:c:\users\admin\desktop\minesweepersdl2 btl uet\function.cpp
+	"Texture.h"
+	"Variables.h"
+	"constant.h"
+	"Buttons.h"
+	"function.h"
+	"Timer.h"
+	<sstream>
+	<fstream>
 
