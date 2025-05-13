@@ -22,22 +22,18 @@ void LButton::handleEventAgain(SDL_Event* e)
         int x, y;
         SDL_GetMouseState(&x, &y);
         bool inside = true;
-        //Mouse is left of the button
         if (x < mPosition.x)
         {
             inside = false;
         }
-        //Mouse is right of the button
         else if (x > mPosition.x + 42)
         {
             inside = false;
         }
-        //Mouse above the button
         else if (y < mPosition.y)
         {
             inside = false;
         }
-        //Mouse below the button
         else if (y > mPosition.y + 42)
         {
             inside = false;
@@ -59,22 +55,18 @@ void LButton::handleEventBack(SDL_Event* e)
         int x, y;
         SDL_GetMouseState(&x, &y);
         bool inside = true;
-        //Mouse is left of the button
         if (x < mPosition.x)
         {
             inside = false;
         }
-        //Mouse is right of the button
         else if (x > mPosition.x + 50)
         {
             inside = false;
         }
-        //Mouse above the button
         else if (y < mPosition.y)
         {
             inside = false;
         }
-        //Mouse below the button
         else if (y > mPosition.y + 50)
         {
             inside = false;
@@ -105,22 +97,18 @@ void LButton::handleEventMute(SDL_Event* e)
         int x, y;
         SDL_GetMouseState(&x, &y);
         bool inside = true;
-        //Mouse is left of the button
         if (x < mPosition.x)
         {
             inside = false;
         }
-        //Mouse is right of the button
         else if (x > mPosition.x + 50)
         {
             inside = false;
         }
-        //Mouse above the button
         else if (y < mPosition.y)
         {
             inside = false;
         }
-        //Mouse below the button
         else if (y > mPosition.y + 50)
         {
             inside = false;
@@ -138,47 +126,38 @@ void LButton::handleEventMute(SDL_Event* e)
 
 void LButton::handleEvent(SDL_Event* e)
 {
-    //If mouse event happened
-    if (e->type == SDL_MOUSEMOTION || e->type == SDL_MOUSEBUTTONDOWN || e->type == SDL_MOUSEBUTTONUP)
+    if (e->type == SDL_MOUSEBUTTONDOWN)
     {
-        //Get mouse position
         int x, y;
         SDL_GetMouseState(&x, &y);
 
         int i =  ( x - distance_x)  / TILE_SIZE;
         int j = (y - distance_y) / TILE_SIZE;
 
-        //Check if mouse is in button
         bool inside = true;
 
-        //Mouse is left of the button
         if (x < mPosition.x)
         {
             inside = false;
         }
-        //Mouse is right of the button
         else if (x > mPosition.x + TILE_SIZE)
         {
             inside = false;
         }
-        //Mouse above the button
         else if (y < mPosition.y)
         {
             inside = false;
         }
-        //Mouse below the button
         else if (y > mPosition.y + TILE_SIZE)
         {
             inside = false;
         }
 
-        //Mouse is inside button
         if (inside)
         {
             if (e->type == SDL_MOUSEBUTTONDOWN)
             {
 
-                //Set mouse clicked
                 switch (e->button.button)
                 {
                 case SDL_BUTTON_LEFT:
@@ -226,11 +205,9 @@ void LButton::handleEvent(SDL_Event* e)
 
 void LButton::render(int i, int j)
 {
-    //Show current button sprite
     Tiles_image.render(mPosition.x, mPosition.y, &Tilesprites[sBoard[i][j]]);
 }
 void LButton::loseRender(int i, int j)
 {
-    //Show all button sprite
     Tiles_image.render(mPosition.x, mPosition.y, &Tilesprites[board[i][j]]);
 }

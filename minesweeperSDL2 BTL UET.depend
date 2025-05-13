@@ -37,7 +37,7 @@
 1744427930 c:\users\admin\desktop\minesweepersdl2 btl uet\timer.h
 	<SDL.h>
 
-1745473255 source:c:\users\admin\desktop\minesweepersdl2 btl uet\buttons.cpp
+1747105465 source:c:\users\admin\desktop\minesweepersdl2 btl uet\buttons.cpp
 	"Variables.h"
 	"constant.h"
 	"Buttons.h"
@@ -51,7 +51,7 @@
 	"Texture.h"
 	"Variables.h"
 
-1745473478 source:c:\users\admin\desktop\minesweepersdl2 btl uet\function.cpp
+1747107156 source:c:\users\admin\desktop\minesweepersdl2 btl uet\function.cpp
 	"Texture.h"
 	"Variables.h"
 	"constant.h"
